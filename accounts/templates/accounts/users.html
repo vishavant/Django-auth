@@ -1,0 +1,10 @@
+{% extends 'accounts/base.html' %}
+
+{% block page_title %}users{% endblock page_title %}
+
+
+{% block page_content %}
+{% for user in users %}
+<p>{{ user.name }}</p>
+{% endfor %}
+{% endblock page_content %}

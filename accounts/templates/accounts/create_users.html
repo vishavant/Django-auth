@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block page_title %}
+create user
+
+{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container">
+    <a href="{% url 'accounts:student-registration' %}" class="btn btn-primary mt-2">Create Student</a>
+    <a href="{% url 'accounts:trainer-registration' %}" class="btn btn-success mt-2">Create Trainer</a>
+    <a href="{% url 'accounts:counsellor-registration' %}" class="btn btn-warning mt-2">Create Counsellor</a>
+</div>
+
+{% endblock page_content %}
