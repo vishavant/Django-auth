@@ -1,0 +1,16 @@
+{% extends 'accounts/base.html' %}
+
+{% block page_heading %}
+
+{% for message in messages %}
+<p id="messages">{{ message }}</p>
+{% endfor %}
+{% endblock page_heading %}
+
+{% block page_content %}
+
+Hello {{ user.name }}
+
+<a href="{% url 'accounts:logout' %}" class="btn btn-danger">logout</a>
+
+{% endblock page_content %}

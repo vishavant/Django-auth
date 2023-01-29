@@ -5,17 +5,42 @@
 
 
 {% block page_content %}
+<div class="col d-flex justify-content-center">
 
-  <div class="row">
-    <div class="col-md-8 col-sm-10 col-12">
-      <h2>Sign up as a {{ user_type }}</h2>
-      <form method="post" novalidate>
-        {% csrf_token %}
-        <input type="hidden" name="next" value="{{ next }}">
-        {{ form|crispy }}
-        <button type="submit" class="btn btn-success mt-2">Sign up</button>
-      </form>
-    </div>
+  <div class="card shadow p-3 mb-5 rounded mt-4" style="width: 28rem;">
+    <h2 class="text-center">Create Account</h2>
+  
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Your Name</label>
+        <input type="text" name="name" class="form-control" required id="id_name exampleInputEmail1" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Enter Email address</label>
+        <input type="email" name="email" class="form-control" required id="id_email exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Create Password</label>
+        <input type="password" name="password1" class="form-control" required id="id_password1 exampleInputPassword1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+        <input type="password" name="password2" class="form-control" required id="id_password2 exampleInputPassword1">
+      </div>
+      <div class="text-center">
+        <input class="btn btn-primary" type="submit", value="Create Account">
+      </div>
+    </form>
   </div>
+</div>
+
+<div class="text-center">
+  <span>Already Have an account <a href="{% url 'accounts:login' %}">Login</a></span> <br>
+  <span>Go to <a href="/">Home</a></span>
+</div>
+  
 
 {% endblock page_content %}
+

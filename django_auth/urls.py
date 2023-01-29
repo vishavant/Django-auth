@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django_auth import settings
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('accounts.urls', namespace="accounts"))
-]
+    path('', include('accounts.urls', namespace="accounts"),),
+    path('', include('website.urls', namespace="website"),),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL,
+                                                                                         document_root=settings.STATIC_ROOT)

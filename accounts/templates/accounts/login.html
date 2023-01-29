@@ -5,6 +5,41 @@
 {% block page_title %}login{% endblock page_title %}
 
 {% block page_content %}
+<div class="col d-flex justify-content-center">
+
+  <div class="card shadow p-3 mb-5 rounded mt-4 " style="width: 28rem;">
+    <h4 class="text-center">Login</h4>
+  <form action="" method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input type="email" name="email" class="form-control" required id="id_email exampleInputEmail1" aria-describedby="emailHelp">
+      {% comment %} <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> {% endcomment %}
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control" required id="id_password exampleInputPassword1">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+    </div>
+    <div class="text-center">
+      <input class="btn btn-primary" type="submit", value="Submit">
+    </div>
+  </form>
+  </div>
+</div>
+
+<div class="text-center">
+  <span>New User <a href="{% url 'accounts:user-signup' %}">Create Account</a></span> <br>
+  <span>Go to <a href="/">Home</a></span>
+</div>
+
+{% endblock page_content %}
+
+
+
 {% if form.non_field_errors %}
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
       {% for error in form.non_field_errors %}
@@ -28,5 +63,3 @@
     <button><a href="{% url 'accounts:user-signup' %}">Create Account</a></button>
     </div>
   </div>
-
-{% endblock page_content %}

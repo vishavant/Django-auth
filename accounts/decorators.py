@@ -47,7 +47,7 @@ def counsellor_required(function=None, redirect_field=REDIRECT_FIELD_NAME, login
 
 def admin_required(function=None, redirect_field=REDIRECT_FIELD_NAME, login_url='accounts:login'):
     """
-    This decorators checks wether the user is_trainer
+    This decorators checks wether the user is_admin
     """
     actual_decorator = user_passes_test(
         lambda u: u.is_active and u.admin,
@@ -57,3 +57,9 @@ def admin_required(function=None, redirect_field=REDIRECT_FIELD_NAME, login_url=
     if function:
         return actual_decorator(function)
     return actual_decorator
+
+
+
+def logged_out_only(user):
+    return not user.is_authenticated
+
